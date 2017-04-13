@@ -1,0 +1,27 @@
+/*--------------------------------------------------*/
+/* Page header */
+
+.page-header {
+  .max-width();
+  background-color: fade(@black, 30%);
+  min-height: 66px;
+
+  .no-js & {
+    @media (max-width: @desktop) {
+      background-color: @color-primary;
+    }
+  }
+
+  @media (min-width: @tablet) {
+    min-height: 110px;
+  }
+}
+
+/* Добавляем JavaScript-ом при нажатии на "бургер"*/
+.page-header--open-menu {
+  background-color: @color-primary;
+}
+
+.page-header__content-wrapper {
+  .container();
+}

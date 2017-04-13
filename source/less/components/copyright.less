@@ -1,0 +1,41 @@
+/*--------------------------------------------------*/
+/* Copyright */
+
+.copyright {
+  flex-basis: 200px;
+  padding: 34px 0;
+}
+
+.copyright__text {
+  font-size: @font-size-small;
+  line-height: 1.2;
+  color: @color-text-dark;
+}
+
+.copyright__link {
+  display: inline-flex;
+  margin: 0 15px;
+  font-size: 0;
+  transition: 0.5s;
+  vertical-align: middle;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover .copyright__icon {
+    fill: @color-primary;
+  }
+
+  &:active .copyright__icon {
+    fill: fade(@color-primary, 30%);
+    transition: 0.2s;
+  }
+}
+
+.copyright__icon {
+  width: 27px;
+  height: 33px;
+  fill: @color-secondary;
+  transition: 0.5s;
+}

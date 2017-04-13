@@ -1,0 +1,124 @@
+/*--------------------------------------------------*/
+/* Study */
+
+.study {
+  display: none;
+
+  @media (min-width: @tablet) {
+    .max-width();
+    display: block;
+
+    @media (min-width: @desktop) {
+      background-color: darken(@white, 5%);
+      padding-bottom: 60px;
+    }
+  }
+}
+
+.study__content-wrapper {
+  .container();
+  flex-direction: column;
+}
+
+.study__item {
+  position: relative;
+  padding: 105px 0 55px 310px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    height: 305px;
+    background: transparent url("../images/bg__tablet-stopwatch.svg") no-repeat ;
+  }
+
+  &::after {
+    content: "24";
+    position: absolute;
+    left: 26px;
+    bottom: 31px;
+    width: 210px;
+    height: 210px;
+    font-weight: 700;
+    font-size: 105px;
+    line-height: 180px;
+    text-align: center;
+    color: @color-secondary;
+    border: 10px solid @color-secondary;
+    border-radius: 50%;
+  }
+
+  @media (min-width: @desktop) {
+    padding-top: 120px;
+    padding-left: 365px;
+
+    &::before {
+      width: 300px;
+      height: 350px;
+      background: transparent url("../images/bg__desktop-stopwatch.svg") no-repeat ;
+    }
+
+    &::after {
+      left: 29px;
+      bottom: 31px;
+      width: 245px;
+      height: 245px;
+      font-size: 120px;
+      line-height: 200px;
+      text-align: center;
+      border-width: 15px;
+    }
+  }
+}
+
+.study__item-heading {
+  margin: 0;
+  margin-bottom: 10px;
+  padding-right: 140px;
+  font-weight: 700;
+  font-size: @font-size-large;
+  line-height: 1.2;
+  color: @black;
+
+  @media (min-width: @desktop) {
+    margin-bottom: 20px;
+  }
+}
+
+.study__item-text {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: @font-size-small;
+  line-height: 1.7;
+  color: @color-text-dark;
+
+  @media (min-width: @desktop) {
+    font-size: @font-size-small + 4;
+    margin-bottom: 30px;
+  }
+}
+
+.study__item-link {
+  font-size: @font-size-small;
+  line-height: 1.7;
+  color: @color-link;
+  border-bottom: 1px solid @color-secondary;
+  transition: 0.5s;
+
+  @media (min-width: @desktop) {
+    font-size: @font-size-small + 4;
+  }
+
+  &:hover {
+    color: @color-primary;
+    border-color: @color-primary;
+  }
+
+  &:active {
+    color: fade(@color-primary, 30%);
+    border-color: transparent;
+    transition: 0.2s;
+  }
+}

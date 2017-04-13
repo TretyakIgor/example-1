@@ -1,0 +1,6 @@
+# Ignor
+
+node_modules/
+
+build/
+design/

@@ -1,0 +1,73 @@
+/*--------------------------------------------------*/
+/* Loader */
+
+.loader {
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: @color-primary;
+  background-image: repeating-linear-gradient(45deg, @gray-70 1px, transparent 2px, transparent 82px),
+                        repeating-linear-gradient(-45deg, @gray-70 1px, transparent 2px, transparent 82px);
+
+  & > * {
+    flex-shrink: 0;
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.loader__circle {
+  flex-basis: @mobile;
+  height: 320px;
+  margin: auto;
+  background-image: radial-gradient(at 50% 50%, transparent 10%, @color-secondary 50%, transparent 70%);
+  animation: pulsate 1.5s ease-out infinite;
+}
+
+.loader__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: @font-size-large - 10;
+  line-height: 1.5;
+  color: @color-text-light;
+  text-shadow: 3px 3px 0 @gray-10;
+  text-align: center;
+  vertical-align: middle;
+
+  @media (min-width: @tablet) {
+    font-size: @font-size-large;
+  }
+
+  @media (min-width: @desktop) {
+    font-size: @font-size-large + 10;
+  }
+}
+
+/* Добавляется JavaScript-ом */
+.loader--close {
+  z-index: -1;
+  opacity: 0;
+  transition: 1s;
+}
+
+/* Animation */
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+   }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

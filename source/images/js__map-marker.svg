@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d22856;
+        stroke: #fff;
+        stroke-linejoin: round;
+        stroke-width: 5px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="js__map-marker" class="cls-1" d="M160,3076.03a8,8,0,1,1-7.926,8A7.962,7.962,0,0,1,160,3076.03Z" transform="translate(-145 -3069)"/>
+</svg>

@@ -1,0 +1,20 @@
+/*--------------------------------------------------*/
+/* Page footer */
+
+.page-footer {
+  display: none;
+
+  @media (min-width: @tablet) {
+    .max-width();
+    display: block;
+  }
+
+  @media (min-width: @desktop) {
+    padding: 40px 0;
+  }
+}
+
+.page-footer__content-wrapper {
+  .container();
+  justify-content: space-between;
+}

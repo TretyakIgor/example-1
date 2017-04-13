@@ -1,0 +1,36 @@
+// Ретинизация изображений
+.retina-image(@image, @width, @height: auto) {
+  @filename  : ~ `/(.*)\.(jpg|jpeg|png|gif)/.exec(@{image})[1]`;
+  @extension : ~ `/(.*)\.(jpg|jpeg|png|gif)/.exec(@{image})[2]`;
+  background-image: ~ `"url(@{filename}.@{extension})"`;
+  background-size: @width @height;
+
+  @media @retina-2x {
+    background-image: ~ `"url(@{filename}@2x.@{extension})"`;
+  }
+
+  @media @retina-3x {
+    background-image: ~ `"url(@{filename}@3x.@{extension})"`;
+  }
+}
+
+// Скрыть текст, но оставить доступным для читалок
+.visually-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+// Очистка потока
+.clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

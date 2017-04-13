@@ -1,0 +1,223 @@
+/*--------------------------------------------------*/
+/* Navigation */
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+
+  & > * {
+    flex-shrink: 0;
+  }
+}
+
+.page-nav__button {
+  display: flex;
+  flex-basis: 60px;
+  height: 60px;
+  margin: 3px 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover span,
+  &:hover span::before,
+  &:hover span::after {
+    background-color: @color-secondary;
+  }
+
+  &:active span,
+  &:active span::before,
+  &:active span::after {
+    background-color: fade(@color-secondary, 30%);
+    transition: 0.2s;
+  }
+
+  @media (min-width: @tablet) {
+    margin: 25px 0;
+  }
+
+  @media (min-width: @desktop) {
+    display: none;
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.page-nav__button span {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 4px;
+  margin: auto;
+  background-color: @white;
+  font-size: 0;
+  transition: background-color 0.5s linear,
+  width 0.3s ease-in 0.2s;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: @white;
+    transition: background-color 0.5s linear,
+    transform 0.3s ease-in,
+    top 0.5s ease-in-out 0.2s,
+    width 0.3s ease-in 0.2s;
+  }
+
+  &::before {
+    top: 10px;
+  }
+
+  &::after {
+    top: -10px;
+  }
+}
+
+.page-nav__button.page-nav__button--close {
+  &:hover span,
+  &:active span {
+    background-color: transparent;
+  }
+}
+
+.page-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: @desktop) {
+    flex-basis: 100%;
+    flex-direction: column;
+    display: none;
+
+    .no-js & {
+      display: flex;
+    }
+  }
+
+  @media (min-width: @desktop) {
+    flex-basis: 620px;
+    justify-content: space-between;
+  }
+}
+
+.page-nav__item {
+  @media (max-width: @desktop) {
+    padding: 17px 20px;
+    margin-left: -40px;
+    margin-right: -40px;
+    border-top: 1px solid @black;
+    box-shadow: inset 0 1px 1px fade(@white, 15%);
+    background-color: @color-primary;
+
+    &:last-child {
+      border-bottom: 1px solid @black;
+    }
+  }
+
+  @media (max-width: @tablet) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  @media (min-width: @desktop) {
+    padding: 41px 0 44px;
+  }
+}
+
+.page-nav__link {
+  @media (max-width: @desktop) {
+    display: block;
+    font-weight: 700;
+    font-size: @font-size-medium - 2;
+    line-height: 1.7;
+    color: @white;
+    text-transform: uppercase;
+    text-align: center;
+    transition: 0.5s;
+
+    &:hover {
+      margin-left: 10px;
+      color: @color-secondary;
+    }
+
+    &:active {
+      color: fade(@color-secondary, 30%);
+      transition: 0.2s;
+    }
+  }
+
+  @media (min-width: @desktop) {
+    position: relative;
+    padding: 0 5px;
+    font-size: @font-size-medium - 2;
+    line-height: 1.7;
+    color: @white;
+    transition: 0.5s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      background-color: @white;
+      transform: scale(0);
+      transition: 0.5s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &:active,
+    &:active::after {
+      opacity: 0.3;
+      transition: 0.2s;
+    }
+
+    &:active::after {
+      transform: scale(0);
+    }
+  }
+}
+
+/* Добавляем JavaScript-ом при открытии меню */
+.page-nav__button--close span {
+  width: 30px;
+  background-color: transparent;
+  transition: background-color 0.5s linear,
+  width 0.3s ease-in 0.2s;
+
+  &::before,
+  &::after {
+    top: 0;
+    width: 30px;
+    transition: background-color 0.5s linear,
+    top 0.5s ease-in-out,
+    width 0.3s ease-in 0.2s,
+    transform 0.3s ease-out 0.5s;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.page-nav__list--open {
+  @media (max-width: @desktop) {
+    display: flex;
+  }
+}
+

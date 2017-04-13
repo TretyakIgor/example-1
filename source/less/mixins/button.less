@@ -1,0 +1,21 @@
+// Базовая стилизация кнопок
+.button() {
+  display: inline-flex;
+  font-family: @font-family;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+
+  & > * {
+    flex-shrink: 0;
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+  }
+}
